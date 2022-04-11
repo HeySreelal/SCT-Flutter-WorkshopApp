@@ -43,11 +43,17 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
-          DrawerHeader(
-            child: Image.asset("assets/bmw.jpeg"),
+          Image.asset(
+            "assets/bmw.jpeg",
+            fit: BoxFit.fitWidth,
           ),
           ListTile(
-            title: const Text("New Chat"),
+            title: Center(
+              child: Text("BMWs I want $count"),
+            ),
+          ),
+          ListTile(
+            title: const Text("Open Details"),
             leading: const Icon(Icons.chat),
             onTap: () {
               Navigator.push(
@@ -62,13 +68,13 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           ListTile(
-            title: const Text("New Group"),
-            leading: const Icon(Icons.people),
+            title: const Text("Book A Ride"),
+            leading: const Icon(Icons.car_rental),
             onTap: () {},
           ),
           ListTile(
-            title: const Text("Saved Messages"),
-            leading: const Icon(Icons.save_rounded),
+            title: const Text("Favourite Models"),
+            leading: const Icon(Icons.favorite),
             onTap: () {},
           ),
           ListTile(
