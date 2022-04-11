@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Contacts"),
+        title: const Text("My Car"),
         actions: [
           IconButton(
             onPressed: () {},
