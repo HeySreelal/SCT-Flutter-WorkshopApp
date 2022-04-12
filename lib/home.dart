@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workshopapp/contact.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,25 +32,34 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // increment
           setState(() {
             count++;
           });
         },
-        child: const Icon(Icons.add),
         backgroundColor: Colors.green,
+        icon: const Icon(Icons.add),
+        label: const Text("Increment"),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          Image.asset(
-            "assets/bmw.jpeg",
-            fit: BoxFit.fitWidth,
+          Hero(
+            tag: "car-image",
+            child: Image.asset(
+              "assets/bmw.jpeg",
+              width: 200,
+            ),
           ),
           ListTile(
             title: Center(
-              child: Text("BMWs I want $count"),
+              child: Text(
+                "BMWs I want $count",
+                style: GoogleFonts.dancingScript(
+                  fontSize: 40,
+                ),
+              ),
             ),
           ),
           ListTile(
@@ -62,7 +72,7 @@ class _HomePageState extends State<HomePage> {
 
                 // the page we're navigating to
                 MaterialPageRoute(
-                  builder: (context) => const ContactPage(),
+                  builder: (context) => const DetailsPage(),
                 ),
               );
             },
@@ -82,13 +92,27 @@ class _HomePageState extends State<HomePage> {
             leading: const Icon(Icons.settings),
             onTap: () {},
           ),
+          ListTile(
+            title: ElevatedButton(
+              onPressed: () {},
+              child: const Text("Elevated Button"),
+            ),
+          ),
+          ListTile(
+            title: TextButton(
+              child: const Text("Add To Cart"),
+              onPressed: () {},
+            ),
+          ),
         ],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
-              child: Image.asset("assets/bmw.jpeg"),
+              child: Image.asset(
+                "assets/bmw.jpeg",
+              ),
             ),
             ListTile(
               title: const Text("New Chat"),
